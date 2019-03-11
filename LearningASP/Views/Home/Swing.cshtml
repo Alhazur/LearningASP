@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Swing";
+}
+
+<h2>Swing</h2>
+
+<form asp-controller="Home" asp-action="Swing" method="post">
+    <input name="angle" type="number" min="0.001" max="89.999" placeholder="Angle" />
+    <input name="velocity" type="number" min="0.001" max="109.999" placeholder="Velocity" />
+    <button>Calculate</button>
+</form>
+
+@if (ViewBag.Distance != null)
+{
+    <h3>Result</h3>
+    <p>@ViewBag.Distance</p>
+}
