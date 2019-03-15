@@ -18,6 +18,18 @@ namespace LearningASP
         {
             //DependencyInjection allt krav fråm icakeservice och sen färdigt produkt
             services.AddSingleton<ICakeService, MockCakeService>();
+
+            //Session
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddMvc();
         }
 
@@ -31,7 +43,7 @@ namespace LearningASP
 
             //app.UseDefaultFiles();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             //app.Run(async (context) =>

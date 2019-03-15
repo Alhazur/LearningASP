@@ -8,7 +8,7 @@ namespace LearningASP.Models
     public interface ICakeService//skappa service till klass
     {
         // för att skappa tårta (allt inom här är krävs) fråm klass Cake
-        Cake CreateCake(string name, int price, string details);
+        Cake CreateCake(int id, string name, int price, string details);
 
         List<Cake> AllCakes();
 

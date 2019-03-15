@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Session Index";//Razer View
+                                    //Layout = "_Layout"; toje mojno preminit!
+}
+
+<h1>Stored in Session</h1>
+
+@if (ViewBag.ToDo != null)
+{
+    <h3>ToDo: @ViewBag.ToDo</h3>
+}
+
+@if (ViewBag.Prio != null)
+{
+    <h3>Prio: @ViewBag.Prio</h3>
+}

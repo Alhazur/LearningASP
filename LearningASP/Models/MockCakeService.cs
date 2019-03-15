@@ -22,7 +22,7 @@ namespace LearningASP.Models
             return cakes;
         }
 
-        public Cake CreateCake(string name, int price, string details)
+        public Cake CreateCake(int id, string name, int price, string details)
         {
             Cake cake = new Cake() { Id = idCount, Name = name, Price = price, Details = details };
             idCount++;
