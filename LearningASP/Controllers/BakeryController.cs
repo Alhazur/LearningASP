@@ -29,5 +29,11 @@ namespace LearningASP.Controllers
 
             return View(_cakeService.AllCakes());
         }
+
+        public IActionResult AJAXPartialExample (int id)//eto ajax
+        {
+            
+            return PartialView("_Cake", _cakeService.FindCake(id)); //Partial nazvanie model name
+        }
     }
 }

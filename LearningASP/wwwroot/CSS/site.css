@@ -1,6 +1,12 @@
 ﻿body {
-    background-color:dimgrey;
+    
 }
 h1{
-    color: crimson;
+}
+
+table td{
+    color: azure;
+}
+.trGray{
+    background-color: red;
 }

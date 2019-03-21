@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/CSS/site.css" rel="stylesheet" />
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -33,8 +36,21 @@
     <div>
         @RenderBody()
     </div>
+    <div>
+        <a id="aUpdate" asp-controller="Bakery" asp-action="AJAXPartialExample" asp-route-id="0" data-target="environment-container"> Update</a>
+        <div id="environment-container"></div> @*ajax smotret data-target*@
+    </div>
     <footer>
         <p>Made by: Alhazur &copy;</p>
     </footer>
+    <script>//Jquery
+        $("#aUpdate").click(function (e) {
+            e.preventDefault();
+            var _this = $(this);
+            $.get(_this.attr("href"), function (res) {
+                $('#' + _this.data("target")).html(res);
+            });
+        });
+    </script>
 </body>
 </html>
