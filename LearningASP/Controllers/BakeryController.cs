@@ -23,9 +23,9 @@ namespace LearningASP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int id, string name, int price,string details)
+        public IActionResult Index( string name, int price,string details)
         {
-            _cakeService.CreateCake(id, name, price, details);//till create i html och skappa knappar till dom
+            _cakeService.CreateCake(name, price, details);//till create i html och skappa knappar till dom
 
             return View(_cakeService.AllCakes());
         }

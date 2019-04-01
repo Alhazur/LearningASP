@@ -6,18 +6,33 @@ using LearningASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LearningASP
 {
     public class Startup
     {
+        //Databas
+        private readonly IConfiguration Configuration;//chtoby Configuration zarabotal iz optional
+        public Startup(IConfiguration config)//chtoby Configuration zarabotal iz optional
+        {
+            Configuration = config;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //SQL Databas
+            services.AddDbContext<CakeDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));//iz appsettings ,DefaultConnection
+
             //DependencyInjection allt krav fråm icakeservice och sen färdigt produkt
-            services.AddSingleton<ICakeService, MockCakeService>();
+            //services.AddSingleton<ICakeService, MockCakeService>();
+
+            //Databas
+            services.AddScoped<ICakeService, CakeService>();
 
             //Session
             services.AddDistributedMemoryCache();

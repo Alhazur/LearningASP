@@ -13,8 +13,8 @@ namespace LearningASP.Models
         public MockCakeService()//konsktuktor
         {
             cakes.Add(new Cake() {Name = "Klubnika tårt", Price = 100, Details = "Prosto tårt"});
-            cakes.Add(new Cake() { Name = "ewrew tårt", Price = 14040, Details = "Prosto tårt" });
-            cakes.Add(new Cake() { Name = "wrweewf tårt", Price = 1040, Details = "Prosto tårt" });
+            cakes.Add(new Cake() { Name = "Kakojta tårt", Price = 14040, Details = "Prosto tårt" });
+            cakes.Add(new Cake() { Name = "Prosto tårt", Price = 1040, Details = "Prosto tårt" });
         }
 
         public List<Cake> AllCakes()
@@ -22,7 +22,7 @@ namespace LearningASP.Models
             return cakes;
         }
 
-        public Cake CreateCake(int id, string name, int price, string details)
+        public Cake CreateCake(string name, int price, string details)
         {
             Cake cake = new Cake() { Id = idCount, Name = name, Price = price, Details = details };
             idCount++;
